@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 30px 40px;
+  font-size: 18px;
+}
+
+.container__bg {
+  color: aliceblugray;
+  background-color: lightblue;
+  text-align: center;
+}
+
+.header h1 {
+  margin-bottom: 20px;
+}
+
+.form__row {
+  margin-bottom: 12px;
+}
+
+input,
+textarea,
+select {
+  margin: 0;
+  border: 0;
+  border-radius: 7px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#form-title {
+  width: 50%;
+}
+
+#form-descr {
+  width: 50%;
+  height: 100px;
+}
+
+#form-date,
+#form-status {
+  width: 25%;
+}
+
+#form-btn {
+  width: 50%;
+  padding: 10px;
+  margin-left: 280px;
+  background-color: #d6d6d6;
+  color: gray;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: 0.3s;
+}
+
+#form-btn:hover {
+  background-color: #bbb;
+}
+
+/* Notes  */
+
+.note {
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid lightblue;
+}
+
+.note__descr {
+  margin-bottom: 10px;
+}
+
+.note__date,
+.note__status {
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: black;
+}
+
+.note__links a {
+  color: rgb(66, 182, 221);
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  background-image: linear-gradient(to right, #b5dfe5, #21cbff);
+  background-repeat: no-repeat;
+  background-size: 10px 2px;
+  background-position: left bottom;
+  padding-bottom: 2px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.note__links a:hover {
+  transform: scale(1.1);
+  background-size: 100% 2px;
+}
