@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Заметки на JS</title>
-    <link rel="stylesheet" href="./normalize.css" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <div class="container__bg">
@@ -21,10 +21,7 @@
             </div>
             <div class="form__row">
               <input type="date" id="form-date" placeholder="Выберите дату" />
-              <select id="form-status">
-                <!-- <option value="STATUS_PROGRESS">STATUS_PROGRESS</option>
-                <option value="STATUS_DONE">STATUS_DONE</option> -->
-              </select>
+              <select id="form-status"></select>
             </div>
             <div class="form__row">
               <div id="form-btn">Добавить заметку</div>
@@ -35,24 +32,11 @@
     </div>
 
     <div class="container">
-      <div class="notes" id="notes">
-        <div class="note">
-          <h3>Заметка 1</h3>
-          <div class="note__descr">Описание заметки</div>
-          <div class="note__date">04.04.2024</div>
-          <div class="note__status">Сделать</div>
-          <div class="note__links"><a href="#delete">Удалить</a></div>
-        </div>
-
-        <div class="note">
-          <h3>Заметка 1</h3>
-          <div class="note__descr">Описание заметки</div>
-          <div class="note__date">04.04.2024</div>
-          <div class="note__status">Сделать</div>
-          <div class="note__links"><a href="#delete">Удалить</a></div>
-        </div>
-      </div>
+      <div class="notes" id="notes"></div>
     </div>
-    <script src="script.js"></script>
+    <script src="./js/Config.js"></script>
+    <script src="./js/Note.js"></script>
+    <script src="./js/App.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>
