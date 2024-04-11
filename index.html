@@ -4,17 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Заметки на JS</title>
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <h1>Smart notes</h1>
-    <script src="script.js"></script>
-    <script>
-      for (let item of notes) {
-        document.write(`<h3> ${item.title}</h3>`);
-        document.write(`<p>Описание: ${item.description}</p>`);
-        document.write(`<div> ${item.date}</div>`);
-        document.write(`<div> ${item.status}</div>`);
-      }
-    </script>
+    <div class="container__bg">
+      <div class="container">
+        <div class="header">
+          <h1>Smart notes</h1>
+          <form action="#form" id="form">
+            <div class="form__row">
+              <input type="text" id="form-title" placeholder="Название заметкиы" />
+            </div>
+            <div class="form__row">
+              <textarea type="text" id="form-descr" placeholder="Описание"></textarea>
+            </div>
+            <div class="form__row">
+              <input type="date" id="form-date" placeholder="Выберите дату" />
+              <select id="form-status"></select>
+            </div>
+            <div class="form__row">
+              <div id="form-btn">Добавить заметку</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="notes" id="notes"></div>
+    </div>
+    <script src="./js/Config.js"></script>
+    <script src="./js/Note.js"></script>
+    <script src="./js/App.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>
