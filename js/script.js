@@ -7,5 +7,5 @@ document.addEventListener("DOMContentLoaded", () => {
   let formStatus = form.querySelector("#form-status");
   let notesContainer = document.getElementById("notes");
 
-  let app = new App(formElement, formBtn, notesContainer, formStatus);
+  let app = new App(formElement, formBtn, notesContainer, formStatus, true, true);
 });
