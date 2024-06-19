@@ -1,6 +1,12 @@
 "use strict";
 
 class App {
+  /**
+   * @property {string} file - Файл для получения начальных заметок
+   */
+
+  file = "./notes.json";
+
   notes = [
     {
       title: "Заметка 1",
@@ -16,7 +22,17 @@ class App {
     },
   ];
 
-  constructor(formElement, formBtn, notesContainer, formStatus, autoRun = true) {
+  /**
+   *
+   * @param {HTMLFormElement} formElement - Форма для добавления заметки
+   * @param {HTMLDivElement} formBtn - Кнопка формы для создания новой заметки
+   * @param {HTMLDivElement} notesContainer - Контейнер для заметок
+   * @param {HTMLSelectElement} formStatus - Выпадающий список с доступными статусами заметок
+   * @param {boolean} autoRun - Если параметр true, автоматически выполянется инициализация событий компонента
+   * @param {boolean} loadNotes - Если параметр true, автоматически загружаются заметки из файла
+   */
+
+  constructor(formElement, formBtn, notesContainer, formStatus, autoRun = true, loadNotes = false) {
     this.formElement = formElement;
     this.formBtn = formBtn;
     this.notesContainer = notesContainer;
@@ -24,12 +40,26 @@ class App {
 
     this.config = new Config();
 
-    if (autoRun) {
+    //Загружаем заметки из файла
+    if (loadNotes) {
+      let data = this.loadNotes().then((notesFromFile) => {
+        if (notesFromFile.length) {
+          this.notes = this.notes.concat(notesFromFile);
+        }
+
+        //Запуск init()
+        if (autoRun) {
+          this.init();
+        }
+      });
+    }
+
+    //Запуск init()
+    if (autoRun && !loadNotes) {
       this.init();
     }
   }
 
-  //init
   init() {
     // Отрисовка статусов
     this.setStatusOptions(this.formStatus);
@@ -47,12 +77,23 @@ class App {
     this.notesContainer.addEventListener("click", this.onDeleteNote);
   }
 
+  async loadNotes() {
+    let data = await fetch(this.file);
+    let notes = await data.json();
+    return notes;
+  }
+
   drawNotes() {
     if (!this.notes.length) {
       return;
     }
 
+    // console.log(JSON.stringify(this.notes, true, 4));
+
     for (let item of this.notes) {
+      if (typeof item.date === "string") {
+        item.date = new Date(item.date);
+      }
       let note = new Note(item.title, item.description, item.date, item.status);
       let newNote = note.createDOMNote(this.config);
       this.notesContainer.prepend(newNote);
@@ -111,9 +152,7 @@ class App {
       return;
     }
 
-    let note = new Note(title, description, date, status);
-
-    // let noteData = {};
+    let note = new Note(title, description, new Date(date), status);
 
     let newNote = note.createDOMNote(this.config);
     this.notesContainer.prepend(newNote);

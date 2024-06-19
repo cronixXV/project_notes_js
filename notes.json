@@ -1,0 +1,13 @@
+[
+    {
+        "title": "Заметка 3",
+        "description": "Тестовая заметка 3",
+        "date": "2024-04-23T14:24:21.145Z",
+        "status": "STATUS_PROGRESS"
+    },
+    {
+        "title": "Заметка 4",
+        "date": "2024-04-23T14:24:21.145Z",
+        "status": "STATUS_TODO"
+    }
+]
